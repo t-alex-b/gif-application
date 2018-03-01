@@ -12,8 +12,8 @@ $(document).ready(function (){
 			button.addClass('topic');
 			button.text(topics[i]);
 			$('#topicBtn').append(button);			
-		}
-	}
+		};
+	};
 	function newTopic() {
 			$('#addTopic').on('click', function(event){
 				event.preventDefault();
@@ -25,15 +25,15 @@ $(document).ready(function (){
 					topics.push(topic);
 					$('message').empty();
 					createBtns();
-			})
-		}
+			});
+		};
 		
 	function resetTopics() {
 			$('#clearTopics').on('click', function() {
 				topics.pop(topic);
 				createBtns();
-			})
-		}
+			});
+		};
 		
 	function gifDisplay() {
 		// In this case, the "this" keyword refers to the button that was clicked
@@ -71,7 +71,7 @@ $(document).ready(function (){
 				gifDiv.prepend(gifImage);
 				$('#gifResults').prepend(gifDiv);
 			};
-		})
+		});
 	};
 };
 

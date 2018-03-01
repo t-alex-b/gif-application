@@ -4,18 +4,26 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<script src="assets/javascript/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Giphy API App</title>
 </head>
 <body>
-	<div class = "container-fluid">
+	<div class="container-fluid">
 		<div class="row">
-			<div class = "col-md-12" id = "topicBtn">	</div>
+			<div class="col-md-12" id="topicBtn">	</div>
 		</div>
 	</div>
-	<div class = "container">
-	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8" id="gifResults"></div>
+			<input type="text" id="topic-input" class="col-md-2">
+			<button class="col-md-1" id="addTopic">Submit</button>
+			<button class="col-md-1" id="clearTopics">Clear</button>
+		</div>
 	</div>
-
+<script src="assets/javascript/app.js"></script>
 	
 </body>
 </html>

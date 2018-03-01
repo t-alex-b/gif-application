@@ -1,6 +1,4 @@
-$(document).ready(function (){
-
-	var topics = [Camels, Snorlax, Pumpkins, Elevators, Cavemen];
+	var topics = ["Camels", "Snorlax", "Pumpkins", "Elevators", "Cavemen"];
 	
 	
 	function createBtns() {
@@ -10,6 +8,7 @@ $(document).ready(function (){
 			var button = $('<button>');
 			button.addClass('btn');
 			button.addClass('topic');
+			button.attr('data-name', topics[i])
 			button.text(topics[i]);
 			$('#topicBtn').append(button);			
 		};
@@ -36,20 +35,18 @@ $(document).ready(function (){
 		};
 		
 	function gifDisplay() {
-		// In this case, the "this" keyword refers to the button that was clicked
 		var topic = $(this).attr("data-name");
 			console.log(topic);
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
 			topic + "&api_key=jhV9rhNlX3iMWURWde0YjnS5R0bXi59y&limit=10";
 			console.log(queryURL);
-		// Performing our AJAX GET request
+		
 		$.ajax({
 			url: queryURL,
 			method: "GET"
 		}).done(function (response) {
 			console.log(response);
-			$('#gifResults').empty();
-			// $("#gifResults").text(JSON.stringify(response));
+			$('#gifResults').empty();	
 			var results = response.data;
 			if (results == '') {
 				console.log("nothing");
@@ -57,10 +54,10 @@ $(document).ready(function (){
 			for (var i = 0; i < results.length; i++) {
 				var gifDiv = $('<div>');
 				gifDiv.addClass('gifDiv');
-				//rating for gif
+
 				var gifRating = $('<p>').text('Rating: ' + results[i].rating);
 				gifDiv.append(gifRating);
-				// gettign gif
+
 				var gifImage = $('<img>');
 				gifImage.attr('src', results[i].images.fixed_height_still.url);
 				gifImage.addClass('img-responsive');
@@ -73,7 +70,12 @@ $(document).ready(function (){
 			};
 		});
 	};
-};
+
+	createBtns();
+	newTopic();
+	resetTopics();
+
+	
 
 $(document).on('click', '.topic', gifDisplay);
 
@@ -88,12 +90,4 @@ $(document).on("click", ".image", function () {
 		$(this).attr('data-state', 'still');
 };
 	
-
-
-
-
-
-// api key jhV9rhNlX3iMWURWde0YjnS5R0bXi59y
-
-
-}
+});

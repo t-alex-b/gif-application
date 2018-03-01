@@ -1,17 +1,38 @@
 $(document).ready(function (){
 
-	var gifCats = [Camels, Snorlax, Pumpkins, Elevators];
+	var topics = [Camels, Snorlax, Pumpkins, Elevators, Cavemen];
 	
 	
 	function createBtns() {
 
-		$('#categoryBtns').empty();
-		for (var i = 0; i < gifCats.length; i++) {
+		$('#topicBtn').empty();
+		for (var i = 0; i < topics.length; i++) {
 			var button = $('<button>');
 			button.addClass('btn');
-			button.addClass('gifCats');
-		
-			
+			button.addClass('topic');
+			button.text(topics[i]);
+			$('#topicBtn').append(button);			
+		}
+
+		function newTopic() {
+			$('#addTopic').on('click', function(event){
+				event.preventDefault();
+				var topic = $('#topic-input').val().trim();
+				if (topic == "") {
+					$('#message').text('Create A Topic')
+					return false;
+				} else 
+					topics.push(topic);
+					$('message').empty();
+					createBtns();
+			})
+		}
+
+		function resetTopics() {
+			$('#clearTopics').on('click', function() {
+				topics.pop(topic);
+				createBtns();
+			})
 		}
 	}
 

@@ -1,4 +1,4 @@
-	var topics = ["Camels", "Snorlax", "Pumpkins", "Elevators", "Cavemen"];
+	var topics = ["Master Shake", "Frylock", "Meatwad", "Carl", "Mooninites", "Plutonians"];
 	
 	
 	function createBtns() {

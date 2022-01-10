@@ -29,7 +29,7 @@
 		
 	function resetTopics() {
 			$('#clearTopics').on('click', function() {
-				topics.pop(topic);
+				topics.pop();
 				createBtns();
 			});
 		};
